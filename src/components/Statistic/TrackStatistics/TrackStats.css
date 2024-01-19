@@ -1,0 +1,10 @@
+.stats-list{
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+}
+
+/* .stats-list li{
+    background-color: aqua;
+    display: inline;
+} */

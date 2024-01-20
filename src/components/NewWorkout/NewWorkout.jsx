@@ -5,6 +5,11 @@ function NewWorkout() {
     const { register, handleSubmit, watch, reset } = useForm();
     const [ exercises, setExercises ] = useState([]);
 
+    const onSubmit = (data) => {
+        setExercises([...exercises, data]);
+        reset();
+    };
+
     return (
         <div></div>
     );

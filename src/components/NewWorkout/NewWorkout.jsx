@@ -5,6 +5,9 @@ import './NewWorkout.css';
 function NewWorkout() {
     const { register, handleSubmit, watch, reset } = useForm();
     const [ exercises, setExercises ] = useState([]);
+    const [ date ] = useState(new Date());
+
+    const currentDate = date.toLocaleDateString();
 
     const onSubmit = (data) => {
         setExercises([...exercises, data]);
@@ -12,6 +15,7 @@ function NewWorkout() {
     };
 
     const downloadJson = () => {
+        exercises.unshift(currentDate);
         const dataStr = JSON.stringify(exercises);
         const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr); // Create a data URI for the JSON string
         const exportFileDefaultName = 'workout.json';

@@ -7,12 +7,12 @@ function NewWorkout() {
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
 
-    const currentDate = date.toLocaleDateString();
+    const currentDate = date.toLocaleDateString(); // Get current date
 
     const onSubmit = (data) => {
         setExercises([...exercises, data]);
         reset();
-    };
+    }; // Run this function when the submit button is pressed
 
     const downloadJson = () => {
         exercises.unshift(currentDate);

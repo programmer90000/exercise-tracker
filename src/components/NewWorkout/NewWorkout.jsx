@@ -22,7 +22,26 @@ function NewWorkout() {
       };
 
     return (
-        <div></div>
+        <div>
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <label htmlFor="exerciseName">Exercise Name:</label>
+          <input type="text" id="exerciseName" {...register('exerciseName', { required: true })} />
+          {watch('exerciseName') && <p>Exercise Name is required</p>}
+  
+          <label htmlFor="numberOfReps">Number of Reps:</label>
+          <input type="number" id="numberOfReps" {...register('numberOfReps', { required: true, min: 1 })} />
+          {watch('numberOfReps') && <p>Number of Reps must be greater than 0</p>}
+  
+          <label htmlFor="weightUsed">Weight Used:</label>
+          <input type="number" id="weightUsed" {...register('weightUsed', { required: true, min: 1 })} />
+          {watch('weightUsed') && <p>Weight Used must be greater than 0</p>}
+  
+          <button type="submit">Add Exercise</button>
+          <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>
+            Download JSON
+          </button>
+        </form>
+      </div>
     );
 };
 

@@ -7,7 +7,7 @@ function NewWorkout() {
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
     const [ data, setData ] = useState([]);
-/*
+
     useEffect(() => {
         fetch("https://work-out-api1.p.rapidapi.com/search", {
             method: 'GET',
@@ -20,7 +20,7 @@ function NewWorkout() {
                 setData(data);
             });
     }, []);
-*/    
+  
     const currentDate = date.toLocaleDateString(); // Get current date
 
     const onSubmit = (data) => {

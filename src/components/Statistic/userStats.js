@@ -1,3 +1,9 @@
+let workOut = [2,3,4,5,6];
+let exercise = [2,3,4,5,6,7,8];
+
+function getAvg(){
+};
+
 const userStats = 
     {
         totalNumberOfWorkOut:2,

@@ -4,7 +4,18 @@
     padding: 1em;
 }
 
+.stats-container{
+    border: 0.2em solid black;
+    width: 100%;
+    height: 100%;
+}
+
 /* .stats-list li{
     background-color: aqua;
     display: inline;
 } */
+
+.heading{
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size:x-large;
+}

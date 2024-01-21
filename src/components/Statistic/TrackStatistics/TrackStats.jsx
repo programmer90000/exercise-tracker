@@ -5,8 +5,8 @@ import "../TrackStatistics/TrackStats.css";
 function ItemList (){
     return (
         <>
-            <header><strong>Statistics</strong></header>
-            <section>
+            <header className="heading"><strong>Statistics</strong></header>
+            <section className="stats-container">
                 <div className="stats-list">
                     <div>Total Number of WorkOut</div> 
                     <Figures figure={userStats.totalNumberOfWorkOut}/>

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import './NewWorkout.css';
 
@@ -6,7 +6,21 @@ function NewWorkout() {
     const { register, handleSubmit, watch, reset } = useForm();
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
-
+    const [ data, setData ] = useState([]);
+/*
+    useEffect(() => {
+        fetch("https://work-out-api1.p.rapidapi.com/search", {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '5dccbbf10bmsh6cc302400b47465p17aa40jsn50acacd5d920',
+                'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
+            }
+        }) .then (response => response.json())
+            .then (data => {
+                setData(data);
+            });
+    }, []);
+*/    
     const currentDate = date.toLocaleDateString(); // Get current date
 
     const onSubmit = (data) => {

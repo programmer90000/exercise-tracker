@@ -39,25 +39,25 @@ function NewWorkout() {
         const linkElement = document.createElement('a');
         linkElement.setAttribute('href', dataUri);
         linkElement.setAttribute('download', exportFileDefaultName);
-        linkElement.click(); // Click the link to download the file
+        linkElement.click();
       };
 
-        const uploadJson = (event) => {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = (event) => {
-                    const jsonData = JSON.parse(event.target.result);
-                    const exercisesFromFile = jsonData.filter((item) =>
-                        Object.keys(item).every((key) =>
-                            ["workout_type", "Sets", "Reps", "Weights"].includes(key)
-                        )
-                    );
-                    setExercises([...exercisesFromFile, ...exercises]);
-                };
-                reader.readAsText(file);
+    const uploadJson = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = (event) => {
+                const jsonData = JSON.parse(event.target.result);
+                const exercisesFromFile = jsonData.filter((item) =>
+                    Object.keys(item).every((key) =>
+                        ["workout_type", "Sets", "Reps", "Weights"].includes(key)
+                    )
+                );
+                setExercises([...exercisesFromFile, ...exercises]);
             };
+            reader.readAsText(file);
         };
+    };
           
 
     const onChange = (event) => {

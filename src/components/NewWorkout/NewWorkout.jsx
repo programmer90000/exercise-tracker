@@ -80,7 +80,7 @@ function NewWorkout() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
                     <label htmlFor="workout_type">Exercise Name:</label>
-                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange} onBlur={() => setFilteredData({})}  />
+                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange} onBlur={() => value === "" && setFilteredData({})}  />
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
@@ -103,7 +103,7 @@ function NewWorkout() {
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
-                    <label id="upload-json-file-label" for="upload-json-file" class="custom-file-upload">Upload JSON file</label>
+                    <label id="upload-json-file-label" htmlFor="upload-json-file" className="custom-file-upload">Upload JSON file</label>
                     <input id="upload-json-file" type="file" accept=".json" onClick={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>

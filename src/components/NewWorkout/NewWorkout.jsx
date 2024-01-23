@@ -7,6 +7,8 @@ function NewWorkout() {
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
     const [ data, setData ] = useState([]);
+    const [ value, setValue ] = useState('');
+    const [ filteredData, setFilteredData ] = useState([]);
 
     useEffect(() => {
         fetch("https://work-out-api1.p.rapidapi.com/search", {
@@ -40,6 +42,19 @@ function NewWorkout() {
         linkElement.click(); // Click the link to download the file
       };
 
+      const onChange = (event) => {
+        setValue(event.target.value);
+        const searchTerm = event.target.value.toLowerCase();
+        const filteredData = data.filter(item => {
+        //const name = item.name.toLowerCase();
+        return item.WorkOut.toLowerCase().includes(searchTerm) && item.WorkOut !== searchTerm;
+        }).slice(0, 10);
+        setFilteredData(filteredData);
+        };
+        const onSearch = (searchTerm) => {
+        setValue(searchTerm);
+        };
+
     return (
         <div id="record-workout">
             <h4>Record a workout</h4>
@@ -47,7 +62,10 @@ function NewWorkout() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
                     <label htmlFor="exerciseName">Exercise Name:</label>
-                    <input type="text" id="exerciseName" placeholder="Name" {...register('exerciseName', { required: true })} />
+                    <input type="text" autoComplete="on" id="exerciseName" placeholder="Name" {...register('exerciseName', { required: true })} value={value} onChange={onChange}  />
+                    <div className="dropdown">
+                        {filteredData.map((item) => <div onClick={() => onSearch(item.name)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>)}
+                    </div>
                     {watch('exerciseName') && <p>Exercise Name is required</p>}
                 </div>
                 <div className="question">

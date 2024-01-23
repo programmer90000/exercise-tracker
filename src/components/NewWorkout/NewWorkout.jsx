@@ -26,12 +26,12 @@ function NewWorkout() {
     const currentDate = date.toLocaleDateString(); // Get current date
 
     const onSubmit = (data) => {
-        setExercises([...exercises, data]);
+        const exercisesJsonData = { date: currentDate, ...data };
+        setExercises([...exercises, exercisesJsonData]);
         reset();
     }; // Run this function when the submit button is pressed
 
     const downloadJson = () => {
-        exercises.unshift(currentDate);
         const dataStr = JSON.stringify({...exercises});
         const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr); // Create a data URI for the JSON string
         const exportFileDefaultName = 'workout.json';

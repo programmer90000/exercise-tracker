@@ -80,7 +80,7 @@ function NewWorkout() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
                     <label htmlFor="workout_type">Exercise Name:</label>
-                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange}  />
+                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange} onBlur={() => setFilteredData({})}  />
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>

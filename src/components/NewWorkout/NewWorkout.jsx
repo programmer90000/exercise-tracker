@@ -46,7 +46,6 @@ function NewWorkout() {
         setValue(event.target.value);
         const searchTerm = event.target.value.toLowerCase();
         const filteredData = data.filter(item => {
-        //const name = item.name.toLowerCase();
         return item.WorkOut.toLowerCase().includes(searchTerm) && item.WorkOut !== searchTerm;
         }).slice(0, 10);
         setFilteredData(filteredData);

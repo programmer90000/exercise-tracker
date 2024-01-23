@@ -48,7 +48,8 @@ input {
     width: 300px;
 }
 
-form button {
+form button,
+#upload-json-file-label {
     display: block;
     margin: auto;
     margin-bottom: 10px;
@@ -77,5 +78,13 @@ form button:disabled {
 }
 
 .dropdown-row:hover {
+    cursor: pointer;
+}
+
+#upload-json-file {
+    display: none;
+}
+
+#upload-json-file-label {
     cursor: pointer;
 }

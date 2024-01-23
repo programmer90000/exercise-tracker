@@ -103,7 +103,8 @@ function NewWorkout() {
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
-                    <input type="file" accept=".json" onClick={uploadJson}></input>
+                    <label id="upload-json-file-label" for="upload-json-file" class="custom-file-upload">Upload JSON file</label>
+                    <input id="upload-json-file" type="file" accept=".json" onClick={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>
             <ul>

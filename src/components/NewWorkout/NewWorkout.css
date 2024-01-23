@@ -66,3 +66,12 @@ form button:disabled {
 #record-workout h5 {
     margin-top: 50px;
 }
+
+.question {
+    flex-direction: column;
+}
+
+.dropdown {
+    background-color: #e2e1e1;
+    width: 100%;
+}

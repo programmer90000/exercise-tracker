@@ -32,7 +32,7 @@ function NewWorkout() {
 
     const downloadJson = () => {
         exercises.unshift(currentDate);
-        const dataStr = JSON.stringify(exercises);
+        const dataStr = JSON.stringify({...exercises});
         const dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(dataStr); // Create a data URI for the JSON string
         const exportFileDefaultName = 'workout.json';
     

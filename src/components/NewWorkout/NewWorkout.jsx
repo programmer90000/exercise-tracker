@@ -52,7 +52,7 @@ function NewWorkout() {
         };
         const onSearch = (searchTerm) => {
         setValue(searchTerm);
-        };
+        }; // If the input is changed
 
     return (
         <div id="record-workout">
@@ -63,9 +63,14 @@ function NewWorkout() {
                     <label htmlFor="exerciseName">Exercise Name:</label>
                     <input type="text" autoComplete="on" id="exerciseName" placeholder="Name" {...register('exerciseName', { required: true })} value={value} onChange={onChange}  />
                     <div className="dropdown">
-                        {filteredData.map((item) => <div onClick={() => onSearch(item.name)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>)}
+                        {value ? filteredData.map((item) => <div onClick={() => onSearch(item.name)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
                     {watch('exerciseName') && <p>Exercise Name is required</p>}
+                </div>
+                <div className="question">
+                    <label htmlFor="numberOfSets">Number of Sets:</label>
+                    <input type="number" id="numberOfSets" placeholder="Sets" {...register('numberOfSets', { required: true, min: 1 })} />
+                    {watch('numberOfSets') && <p>Number of Sets must be greater than 0</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="numberOfReps">Number of Reps:</label>

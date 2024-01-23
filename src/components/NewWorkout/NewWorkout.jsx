@@ -42,20 +42,21 @@ function NewWorkout() {
         linkElement.click(); // Click the link to download the file
       };
 
-    const uploadJson = (event) => {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = (event) => {
-            const jsonData = JSON.parse(event.target.result);
-            const exercises = jsonData.filter((item) =>
+        const uploadJson = (event) => {
+            const file = event.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (event) => {
+              const jsonData = JSON.parse(event.target.result);
+              const exercisesFromFile = jsonData.filter((item) =>
                 Object.keys(item).every((key) =>
-                    ["workout_type", "sets", "repetitions", "weight"].includes(key)
+                  ["workout_type", "Sets", "Reps", "Weights"].includes(key)
                 )
-            );
-            console.log(exercises);
-        };
-        reader.readAsText(file);
-    }
+              );
+              setExercises([...exercisesFromFile, ...exercises]);
+            };
+            reader.readAsText(file);
+          };
+          
 
     const onChange = (event) => {
         setValue(event.target.value);
@@ -100,7 +101,7 @@ function NewWorkout() {
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
-                    <input type="file" onClick={uploadJson}></input>
+                    <input type="file" accept=".json" onClick={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>
             <ul>

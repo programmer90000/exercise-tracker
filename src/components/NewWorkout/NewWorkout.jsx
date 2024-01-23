@@ -50,8 +50,9 @@ function NewWorkout() {
         }).slice(0, 10);
         setFilteredData(filteredData);
         };
+
         const onSearch = (searchTerm) => {
-        setValue(searchTerm);
+            setValue(searchTerm);
         }; // If the input is changed
 
     return (
@@ -63,7 +64,7 @@ function NewWorkout() {
                     <label htmlFor="exerciseName">Exercise Name:</label>
                     <input type="text" autoComplete="on" id="exerciseName" placeholder="Name" {...register('exerciseName', { required: true })} value={value} onChange={onChange}  />
                     <div className="dropdown">
-                        {value ? filteredData.map((item) => <div onClick={() => onSearch(item.name)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
+                        {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
                     {watch('exerciseName') && <p>Exercise Name is required</p>}
                 </div>

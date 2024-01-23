@@ -85,18 +85,18 @@ function NewWorkout() {
                 </div>
                 <div className="question">
                     <label htmlFor="sets">Number of Sets:</label>
-                    <input type="number" id="sets" placeholder="Sets" {...register('sets', { required: true, min: 1 })} />
-                    {watch('sets') && <p>Number of Sets must be greater than 0</p>}
+                    <input type="number" id="sets" placeholder="Sets" {...register('sets', { required: true })} />
+                    {watch('sets') && watch('sets') < 1 && <p>Number of Sets must be greater than 0</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="repetitions">Number of Reps:</label>
-                    <input type="number" id="repetitions" placeholder="Reps" {...register('repetitions', { required: true, min: 1 })} />
-                    {watch('repetitions') && <p>Number of Reps must be greater than 0</p>}
+                    <input type="number" id="repetitions" placeholder="Reps" {...register('repetitions', { required: true })} />
+                    {watch('repetitions') && watch('repetitions') < 1 && <p>Number of Reps must be greater than 0</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="weight">Weight Used:</label>
-                    <input type="number" id="weight" placeholder="Weights" {...register('weight', { required: true, min: 1 })} />
-                    {watch('weight') && <p>Weight Used must be greater than 0</p>}
+                    <input type="number" id="weight" placeholder="Weights" {...register('weight', { required: true })} />
+                    {watch('weight') && watch('weight') < 1 && <p>Weight Used must be greater than 0</p>}
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>

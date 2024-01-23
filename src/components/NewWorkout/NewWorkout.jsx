@@ -42,18 +42,33 @@ function NewWorkout() {
         linkElement.click(); // Click the link to download the file
       };
 
-      const onChange = (event) => {
+    const uploadJson = (event) => {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        reader.onload = (event) => {
+            const jsonData = JSON.parse(event.target.result);
+            const exercises = jsonData.filter((item) =>
+                Object.keys(item).every((key) =>
+                    ["workout_type", "sets", "repetitions", "weight"].includes(key)
+                )
+            );
+            console.log(exercises);
+        };
+        reader.readAsText(file);
+    }
+
+    const onChange = (event) => {
         setValue(event.target.value);
         const searchTerm = event.target.value.toLowerCase();
         const filteredData = data.filter(item => {
-        return item.WorkOut.toLowerCase().includes(searchTerm) && item.WorkOut !== searchTerm;
+            return item.WorkOut.toLowerCase().includes(searchTerm) && item.WorkOut !== searchTerm;
         }).slice(0, 10);
         setFilteredData(filteredData);
-        };
+    };
 
-        const onSearch = (searchTerm) => {
-            setValue(searchTerm);
-        }; // If the input is changed
+    const onSearch = (searchTerm) => {
+        setValue(searchTerm);
+    }; // If the input is changed
 
     return (
         <div id="record-workout">
@@ -61,30 +76,31 @@ function NewWorkout() {
             <p>Welcome to our exercise log! This is where you can record all the exercises you do, keep track of your progress, and stay motivated. Whether you’re a beginner or an experienced athlete, this log will help you achieve your fitness goals.</p>
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
-                    <label htmlFor="exerciseName">Exercise Name:</label>
-                    <input type="text" autoComplete="on" id="exerciseName" placeholder="Name" {...register('exerciseName', { required: true })} value={value} onChange={onChange}  />
+                    <label htmlFor="workout_type">Exercise Name:</label>
+                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange}  />
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
-                    {watch('exerciseName') && <p>Exercise Name is required</p>}
+                    {watch('workout_type') && <p>Exercise Name is required</p>}
                 </div>
                 <div className="question">
-                    <label htmlFor="numberOfSets">Number of Sets:</label>
-                    <input type="number" id="numberOfSets" placeholder="Sets" {...register('numberOfSets', { required: true, min: 1 })} />
-                    {watch('numberOfSets') && <p>Number of Sets must be greater than 0</p>}
+                    <label htmlFor="sets">Number of Sets:</label>
+                    <input type="number" id="sets" placeholder="Sets" {...register('sets', { required: true, min: 1 })} />
+                    {watch('sets') && <p>Number of Sets must be greater than 0</p>}
                 </div>
                 <div className="question">
-                    <label htmlFor="numberOfReps">Number of Reps:</label>
-                    <input type="number" id="numberOfReps" placeholder="Reps" {...register('numberOfReps', { required: true, min: 1 })} />
-                    {watch('numberOfReps') && <p>Number of Reps must be greater than 0</p>}
+                    <label htmlFor="repetitions">Number of Reps:</label>
+                    <input type="number" id="repetitions" placeholder="Reps" {...register('repetitions', { required: true, min: 1 })} />
+                    {watch('repetitions') && <p>Number of Reps must be greater than 0</p>}
                 </div>
                 <div className="question">
-                    <label htmlFor="weightUsed">Weight Used:</label>
-                    <input type="number" id="weightUsed" placeholder="Weights" {...register('weightUsed', { required: true, min: 1 })} />
-                    {watch('weightUsed') && <p>Weight Used must be greater than 0</p>}
+                    <label htmlFor="weight">Weight Used:</label>
+                    <input type="number" id="weight" placeholder="Weights" {...register('weight', { required: true, min: 1 })} />
+                    {watch('weight') && <p>Weight Used must be greater than 0</p>}
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
+                    <input type="file" onClick={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>
             <ul>

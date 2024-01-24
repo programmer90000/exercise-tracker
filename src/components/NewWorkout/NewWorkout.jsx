@@ -14,7 +14,7 @@ function NewWorkout() {
         fetch("https://work-out-api1.p.rapidapi.com/search", {
             method: 'GET',
             headers: {
-                'X-RapidAPI-Key': '5dccbbf10bmsh6cc302400b47465p17aa40jsn50acacd5d920',
+                'X-RapidAPI-Key': 'e6da6f3a5dmsh0fd225164dfcca9p17cd8djsne9c9bb2d20e5',
                 'X-RapidAPI-Host': 'work-out-api1.p.rapidapi.com'
             }
         }) .then (response => response.json())
@@ -26,7 +26,8 @@ function NewWorkout() {
     const currentDate = date.toLocaleDateString(); // Get current date
 
     const onSubmit = (data) => {
-        const exercisesJsonData = { date: currentDate, ...data };
+        const workoutTypeValue = value;
+        const exercisesJsonData = { date: currentDate, workout_type: workoutTypeValue, sets: data.sets, repetitions: data.repetitions, weights: data.weights };
         setExercises([...exercises, exercisesJsonData]);
         reset();
         setValue("");
@@ -58,7 +59,7 @@ function NewWorkout() {
             };
             reader.readAsText(file);
         };
-    };
+    }; // Run this function when the user uploads a file
           
 
     const onChange = (event) => {

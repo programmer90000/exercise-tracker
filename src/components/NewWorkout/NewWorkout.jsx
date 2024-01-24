@@ -84,7 +84,7 @@ function NewWorkout() {
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
-                    {watch('workout_type') && <p>Exercise Name is required</p>}
+                    {watch('workout_type') && watch('workout_type') !== null || undefined && <p>Exercise Name is required</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="sets">Number of Sets:</label>

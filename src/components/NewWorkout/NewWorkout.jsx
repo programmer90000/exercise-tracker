@@ -44,21 +44,40 @@ function NewWorkout() {
         linkElement.click(); // Click the link to download the file
       };
 
-    const uploadJson = (event) => {
+      const uploadJson = (event) => {
         const file = event.target.files[0];
+    
         if (file) {
             const reader = new FileReader();
             reader.onload = (event) => {
-                const jsonData = JSON.parse(event.target.result);
-                const exercisesFromFile = jsonData.filter((item) =>
-                    Object.keys(item).every((key) =>
-                        ["workout_type", "sets", "repetitions", "weights"].includes(key)
-                    )
-                );
-                setExercises([...exercisesFromFile, ...exercises]);
+                try {
+                    const jsonData = JSON.parse(event.target.result);
+    
+                    if (typeof jsonData === 'object' && jsonData !== null) {
+                        // Iterate over the properties of the object
+                        for (const key in jsonData) {
+                            if (Object.hasOwnProperty.call(jsonData, key)) {
+                                const exerciseData = jsonData[key];
+                                const exercise = {
+                                    date: exerciseData.date || currentDate,
+                                    workout_type: exerciseData.workout_type || value,
+                                    sets: exerciseData.sets || 0,
+                                    repetitions: exerciseData.repetitions || 0,
+                                    weights: exerciseData.weights || 0,
+                                };
+    
+                                setExercises([...exercises, exercise]);
+                            }
+                        }
+                    } else {
+                        console.error("Invalid JSON file format. Expected an object.");
+                    }
+                } catch (error) {
+                    console.error("Error parsing JSON file:", error);
+                }
             };
             reader.readAsText(file);
-        };
+        }
     }; // Run this function when the user uploads a file
           
 
@@ -105,7 +124,7 @@ function NewWorkout() {
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
-                    <input type="file" accept=".json" onClick={uploadJson}></input>
+                    <input type="file" accept=".json" onChange={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>
             <ul>

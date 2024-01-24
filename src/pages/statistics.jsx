@@ -1,17 +1,13 @@
-// import React from "react";
-// import statistics from "../components/Statistics/Statistics";
-// import StatisticsCard from "../components/Statistics/Statistics";
-// function statisticsCard (stats){
-//     return(
-//         <StatisticsCard
-//         totalNumberOfWorkOut={stats.totalNumberOfWorkOut}
-//         totalNumberOfExercise={stats.totalNumberOfExercise}
-//         avgNumberOfExercise={stats.avgNumberOfExercise}
-//         avgNumberOfWorkOutPerWeek={stats.avgNumberOfWorkOutPerWeek}
-//         >
-            
-//         </StatisticsCard>
-//     )
-// }
+import React from "react";
 
-// export default statisticsCard;
+
+const Statistics = () => (
+    <div>
+      <h1>Statistics</h1>
+      <p>
+       Statistics here.
+      </p>
+    </div>
+  );
+  
+  export default Statistics;

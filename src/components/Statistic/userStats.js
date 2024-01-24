@@ -45,6 +45,13 @@ export const userData =
         sets: 4,
         repetitions: 12,
         weight: 20  
+    },
+    {
+        date: "2024-01-25",
+        workout_type: "Dumbbell Curls",
+        sets: 2,
+        repetitions: 14,
+        weight: 20  
     }
 ]
   

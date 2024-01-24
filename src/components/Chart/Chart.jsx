@@ -1,32 +1,36 @@
 import { userData } from "../Statistic/userStats";
 import Barchart from "./Bar";
+import LineChart from "./Line";
 import 'chart.js/auto';
+import "./Chart.css"
 
-// function getChartData(data){
-//     <Barchart
-//     date={data.date}
-//     workout_type={data.workout_type}
-//     repetitions={data.repetition}
-//     sets={data.sets}
-//     ></Barchart>
-// }
+const data = {
+    labels:userData.map((data)=>data.workout_type),
+    datasets:[{
+        label:"Daily Reps",
+        data:userData.map((data)=>data.repetitions)
+    }]
+}
+
+const data2 =  {
+    labels:userData.map((data)=>data.date),
+    datasets:[{
+        label:"Daily Reps",
+        data:userData.map((data)=>data.sets)
+    }]
+}
+
 
 
 function Charts (){
-    const data = {
-        labels:userData.map((data)=>data.date),
-        datasets:[{
-            data:userData.map((data)=>data.repetitions)
-        }]
-    }
+ 
     return(
-        <div>
-            <Barchart chartData={data}
-
-
-            ></Barchart>
+        <div className="chart">
+            <Barchart chartData={data}></Barchart>
+            <LineChart chartData={data2} ></LineChart>
         </div>
     )
 };
 
 export default Charts; 
+

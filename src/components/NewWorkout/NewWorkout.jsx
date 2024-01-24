@@ -39,7 +39,7 @@ function NewWorkout() {
         const linkElement = document.createElement('a');
         linkElement.setAttribute('href', dataUri);
         linkElement.setAttribute('download', exportFileDefaultName);
-        linkElement.click();
+        linkElement.click(); // Click the link to download the file
       };
 
     const uploadJson = (event) => {
@@ -50,7 +50,7 @@ function NewWorkout() {
                 const jsonData = JSON.parse(event.target.result);
                 const exercisesFromFile = jsonData.filter((item) =>
                     Object.keys(item).every((key) =>
-                        ["workout_type", "Sets", "Reps", "Weights"].includes(key)
+                        ["workout_type", "sets", "repetitions", "weights"].includes(key)
                     )
                 );
                 setExercises([...exercisesFromFile, ...exercises]);
@@ -80,7 +80,7 @@ function NewWorkout() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
                     <label htmlFor="workout_type">Exercise Name:</label>
-                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange} onBlur={() => value === "" && setFilteredData({})}  />
+                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange}  />
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
@@ -98,13 +98,12 @@ function NewWorkout() {
                 </div>
                 <div className="question">
                     <label htmlFor="weight">Weight Used:</label>
-                    <input type="number" id="weight" placeholder="Weights" {...register('weight', { required: true })} />
+                    <input type="number" id="weight" placeholder="Weights" {...register('weights', { required: true })} />
                     {watch('weight') && watch('weight') < 1 && <p>Weight Used must be greater than 0</p>}
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>
-                    <label id="upload-json-file-label" htmlFor="upload-json-file" className="custom-file-upload">Upload JSON file</label>
-                    <input id="upload-json-file" type="file" accept=".json" onClick={uploadJson}></input>
+                    <input type="file" accept=".json" onClick={uploadJson}></input>
             </form>
             <h5>Tips to help you track exercise</h5>
             <ul>

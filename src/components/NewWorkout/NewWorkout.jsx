@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import './NewWorkout.css';
 
 function NewWorkout() {
-    const { register, handleSubmit, watch, reset } = useForm();
+    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
     const [ data, setData ] = useState([]);
@@ -80,26 +80,26 @@ function NewWorkout() {
             <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="question">
                     <label htmlFor="workout_type">Exercise Name:</label>
-                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true })} value={value} onChange={onChange}  />
+                    <input type="text" autoComplete="on" id="workout_type" placeholder="Name" {...register('workout_type', { required: true, minLength: 1 })} value={value} onChange={onChange}  />
+                    {errors.workout_type && <p>Exercise Name is required</p>}
                     <div className="dropdown">
                         {value ? filteredData.map((item) => <div onClick={() => onSearch(item.WorkOut)} className="dropdown-row" key={item.WorkOut}>{item.WorkOut}</div>) : null}
                     </div>
-                    {watch('workout_type') && watch('workout_type') !== null || undefined && <p>Exercise Name is required</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="sets">Number of Sets:</label>
-                    <input type="number" id="sets" placeholder="Sets" {...register('sets', { required: true })} />
-                    {watch('sets') && watch('sets') < 1 && <p>Number of Sets must be greater than 0</p>}
+                    <input type="number" id="sets" placeholder="Sets" {...register('sets', { required: true, validate: { checkLength: (value) => value > 0  }})} />
+                    {errors.sets && <p>Number of Sets must be greater than 0</p>}
                 </div>
                 <div className="question">
                     <label htmlFor="repetitions">Number of Reps:</label>
-                    <input type="number" id="repetitions" placeholder="Reps" {...register('repetitions', { required: true })} />
-                    {watch('repetitions') && watch('repetitions') < 1 && <p>Number of Reps must be greater than 0</p>}
+                    <input type="number" id="repetitions" placeholder="Reps" {...register('repetitions', { required: true, validate: { checkLength: (value) => value > 0 }})} />
+                    {errors.repetitions && <p>Number of Reps must be greater than 0</p>}
                 </div>
                 <div className="question">
-                    <label htmlFor="weight">Weight Used:</label>
-                    <input type="number" id="weight" placeholder="Weights" {...register('weights', { required: true })} />
-                    {watch('weight') && watch('weight') < 1 && <p>Weight Used must be greater than 0</p>}
+                    <label htmlFor="weights">Weight Used:</label>
+                    <input type="number" id="weights" placeholder="Weights" {...register('weights', { required: true, validate: { checkLength: (value) => value > 0 }})} />
+                    {errors.weights && (<p>Weight Used must be greater than 0</p>)}
                 </div>
                     <button type="submit">Add Exercise</button>
                     <button type="button" onClick={downloadJson} disabled={exercises.length === 0}>Download JSON</button>

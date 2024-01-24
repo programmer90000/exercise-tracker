@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import './NewWorkout.css';
 
 function NewWorkout() {
-    const { register, handleSubmit, watch, reset, formState: { errors } } = useForm();
+    const { register, handleSubmit, reset, formState: { errors } } = useForm();
     const [ exercises, setExercises ] = useState([]);
     const [ date ] = useState(new Date());
     const [ data, setData ] = useState([]);
@@ -29,6 +29,7 @@ function NewWorkout() {
         const exercisesJsonData = { date: currentDate, ...data };
         setExercises([...exercises, exercisesJsonData]);
         reset();
+        setValue("");
     }; // Run this function when the submit button is pressed
 
     const downloadJson = () => {

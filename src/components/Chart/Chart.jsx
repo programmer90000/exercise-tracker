@@ -26,8 +26,12 @@ function Charts (){
  
     return(
         <div className="chart">
+            <div className="bar-chart">
             <Barchart chartData={data}></Barchart>
+            </div>
+            <div className="line-chart">
             <LineChart chartData={data2} ></LineChart>
+            </div>
         </div>
     )
 };

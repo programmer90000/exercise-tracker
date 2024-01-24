@@ -6,8 +6,10 @@
 
 .stats-container{
     border: 0.2em solid black;
-    width: 100%;
-    height: 100%;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* .stats-list li{
@@ -18,4 +20,5 @@
 .heading{
     font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size:x-large;
+    text-align: center;
 }

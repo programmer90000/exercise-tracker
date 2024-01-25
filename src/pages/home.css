@@ -1,0 +1,119 @@
+
+
+/*First section styling*/
+
+.first-section {
+    display: flex;
+    align-items: center;
+    background-color: #F5F5F5;
+}
+
+.image1{   
+    
+    margin-left: 3%;
+    border-radius: 3%;
+
+}
+
+.text-section1{
+    margin-top: 45px;
+    margin-left: 150px;
+    margin-bottom: 150px;
+ 
+}
+
+.title1 {
+    display: flex;
+    justify-content: start;
+    font-size: 70px;
+    
+}
+
+.paragraph1{
+    margin-top: 80px;
+    text-align: justify;
+    margin-right: 40px;
+    margin-left: 5px;
+    
+}
+
+/*Second section styling*/
+
+.second-section{
+    margin-top: 90px;
+    display: flex;
+    justify-content: center;
+    background-color: #F5F5F5;
+
+}
+
+.image2{
+    height: 408px;
+    width: 612px;
+    margin-top: 45px;
+    margin-right: 3%;
+display: flex;
+margin-bottom: 45px;
+border-radius:3%;
+    
+}
+
+.title2{
+    margin-top: 45px;
+    justify-content: start;
+    font-size: 70px;
+    margin-right: 170px;
+    margin-left: 35px;
+}
+
+.paragraph2{
+    margin-top: 80px;
+    margin-left: 35px;
+    margin-right: 190px;
+    text-align: justify;
+}
+/*Third Section styling*/
+
+.third-section {
+    display: flex;
+    align-items: center;
+    margin-top: 90px;
+    background-color: #F5F5F5;
+}
+
+.image3{   
+    height: 408px;
+    width: 612px;
+    margin-left: 3%;
+    border-radius: 3%;
+
+}
+
+.text-section3{
+    margin-top: 45px;
+    margin-left: 150px;
+    margin-bottom: 150px;
+ 
+}
+
+.title3 {
+    display: flex;
+    justify-content: start;
+    font-size: 70px;
+    
+}
+
+.paragraph3{
+    margin-top: 80px;
+    text-align: justify;
+    margin-right: 40px;
+    margin-left: 5px;
+    
+}
+
+.title4{
+    display: flex;
+    justify-content: center;
+    margin-top: 45px;
+    margin-bottom: 35px;
+}

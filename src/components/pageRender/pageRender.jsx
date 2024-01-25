@@ -5,6 +5,7 @@ import About from '../../pages/about';
 import NearestGym from '../../pages/nearestGym';
 import GetNewWorkout from '../../pages/newWorkout';
 import Statistics from '../../pages/statistics';
+import Footer from '../footer/footer';
 
 
 function PageRender() {
@@ -33,6 +34,7 @@ function PageRender() {
     <div>
       <NavTabs currentPage={currentPage} handlePageChange={handlePageChange} />
       {renderPage()}
+      <Footer/>
     </div>
   );
 }

@@ -3,8 +3,8 @@ import SearchForm from '../components/SearchForm';
 
 
 const NearestGym = () => {
-  const handleSearch = (searchTerm) => {
-    console.log('Searching for:', searchTerm);
+  const handleSearch = (gymData) => {
+    console.log('Searching for:', gymData);
     
   };
 

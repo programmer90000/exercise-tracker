@@ -5,18 +5,21 @@ import 'chart.js/auto';
 import "./Chart.css"
 
 const data = {
-    labels:userData.map((data)=>data.workout_type),
+    labels:userData.map((data)=>data["Work Out"]),
     datasets:[{
-        label:"Daily Reps",
-        data:userData.map((data)=>data.repetitions)
+        label:"Reps",
+        backgroundColor:"grey",
+        data:userData.map((data)=>data.Reps)
     }]
 }
 
 const data2 =  {
-    labels:userData.map((data)=>data.date),
+    labels:userData.map((data)=>data["Work Out"]),
     datasets:[{
-        label:"Daily Reps",
-        data:userData.map((data)=>data.sets)
+        label:"Sets",
+        backgroundColor:"grey",
+        borderColor:"grey",
+        data:userData.map((data)=>data.Sets)
     }]
 }
 

@@ -1,13 +1,13 @@
 import React from "react";
+import ItemList from "../components/Statistic/TrackStatistics/TrackStats";
+import Charts from "../components/Chart/Chart";
 
 
 const Statistics = () => (
-    <div>
-      <h1>Statistics</h1>
-      <p>
-       Statistics here.
-      </p>
-    </div>
+    <>
+    <ItemList/>
+    <Charts/>
+    </>
   );
   
   export default Statistics;

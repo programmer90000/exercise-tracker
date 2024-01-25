@@ -1,12 +1,10 @@
 import React from "react";
+import NewWorkout from "../components/NewWorkout/NewWorkout";
 
-const NewWorkout = () => (
-    <div>
-      <h1>New Workout</h1>
-      <p>
-        New workout here.
-      </p>
-    </div>
+const GetNewWorkout = () => (
+    <>
+    <NewWorkout/>
+    </>
   );
   
-  export default NewWorkout;
+  export default GetNewWorkout;

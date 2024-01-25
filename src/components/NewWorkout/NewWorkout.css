@@ -1,0 +1,93 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+form {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: auto;
+}
+
+label {
+    text-align: center;
+    margin-right: 10px;
+}
+
+input {
+    display: block;
+    margin: auto;
+    width: 300px;
+}
+
+#record-workout {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+#record-workout h4 {
+    margin-bottom: 30px;
+}
+
+#record-workout p {
+    margin-bottom: 30px;
+}
+
+.question {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+form button,
+#upload-json-file-label {
+    display: block;
+    margin: auto;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    padding: 15px;
+    background-color: #000000;
+    color: #FFFFFF;
+    font-weight: 700;
+}
+
+form button:disabled {
+    background-color: #8f8f8f;
+}
+
+.dropdown {
+    display: none;
+    background-color: #e2e1e1;
+    width: 100%;
+}
+
+#workout_type:focus + .dropdown,
+.dropdown:hover {
+    display: block;
+}
+
+.dropdown-row:hover {
+    cursor: pointer;
+}
+
+#upload-json-file-label {
+    cursor: pointer;
+}
+
+#upload-json-file {
+    display: none;
+}
+
+#record-workout h5 {
+    margin-top: 50px;
+}

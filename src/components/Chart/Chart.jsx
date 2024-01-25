@@ -2,7 +2,7 @@ import { userData } from "../Statistic/userStats";
 import Barchart from "./Bar";
 import LineChart from "./Line";
 import 'chart.js/auto';
-import "./Chart.css"
+import "./Chart.module.css"
 
 const data = {
     labels:userData.map((data)=>data["Work Out"]),

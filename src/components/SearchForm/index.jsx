@@ -8,7 +8,7 @@ const SearchForm = ({ onSearch }) => {
   const locationAPIkey = '07c6e2c39b20420cb9827bf457518cbc';
   const numberOfResults = 10;
 
-  useEffect(() => {
+  const handleSearch = () => {
     if (searchTerm !== '') {
       // First API call to get location data
       const locationQueryURL = `https://api.geoapify.com/v1/geocode/search?text=${searchTerm}&format=json&apiKey=${locationAPIkey}`;
@@ -22,7 +22,7 @@ const SearchForm = ({ onSearch }) => {
           console.error('Error making location API call:', error.message);
         });
     }
-  }, [searchTerm]);
+  };
 
   useEffect(() => {
     if (locationData && locationData.results && locationData.results.length > 0) {
@@ -46,10 +46,6 @@ const SearchForm = ({ onSearch }) => {
 
   const handleInputChange = (e) => {
     setSearchTerm(e.target.value);
-  };
-
-  const handleSearch = () => {
-    onSearch(searchTerm);
   };
 
   return (

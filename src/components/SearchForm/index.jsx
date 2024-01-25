@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './style.module.css';
+import './style.css';
 
 const SearchForm = ({ onSearch }) => {
   const [searchTerm, setSearchTerm] = useState('');

@@ -1,6 +1,6 @@
 import { Bar } from 'react-chartjs-2';
 import 'chart.js/auto';
-import "./Chart.module.css"
+import "./Chart.css"
 
 
 function Barchart (props){

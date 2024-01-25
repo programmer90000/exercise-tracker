@@ -1,7 +1,7 @@
 import React from "react";
 import HeroImage from "../components/heroImage/heroImage";
 import '../pages/home.css';
-import Component from "../components/testimonials/testimonial";
+
 
 
 
@@ -33,8 +33,6 @@ const Home = () => (
       </div>
     </div>
     <div>
-      <h1 className="title4">What do users say?</h1>
-      <Component></Component>
     </div>
     </div>
   );

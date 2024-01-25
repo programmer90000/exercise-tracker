@@ -29,7 +29,7 @@ const SearchForm = ({ onSearch }) => {
       // Extract place_id from the first result of the location data
       const placeId = locationData.results[0].place_id;
 
-      // Second API call to get gyms data using place_id
+      // Second API call to get gyms data using place_id in order to get the gym data
       const gymQueryURL = `https://api.geoapify.com/v2/places?categories=sport.fitness&filter=place:${placeId}&limit=${numberOfResults}&apiKey=${locationAPIkey}`;
       
       fetch(gymQueryURL)

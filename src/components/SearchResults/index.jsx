@@ -1,14 +1,16 @@
-import React from "react";
-import "./style.css";
+import React from 'react';
 
-function SearchResults(results) {
+const SearchResults = ({ results }) => {
   return (
-    <ul className="list-group search-results">
-      {results.map((result, index) => (
-          <li key={index}>{result.name}</li>
+    <div className="search-results">
+      <h2>Search Results</h2>
+      <ul>
+        {results.map((result, index) => (
+          <li key={index}>{result.properties.name} - {result.properties.address_line2}</li>
         ))}
-    </ul>
+      </ul>
+    </div>
   );
-}
+};
 
 export default SearchResults;

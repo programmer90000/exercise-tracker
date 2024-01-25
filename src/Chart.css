@@ -1,0 +1,23 @@
+.chart{
+    display:flex;
+    margin-left: 10%;
+
+}
+
+/* width: 40%;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding-top: 5%;
+    justify-content: space-between; */
+
+.bar-chart{
+    padding: 1em;
+    height: 80%;
+    width: 60%;
+}
+
+.line-chart{
+    padding: 1em;
+    height: 80%;
+    width: 60%;
+}

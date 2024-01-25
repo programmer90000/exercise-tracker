@@ -1,6 +1,6 @@
 import userStats from "../userStats";
 import Figures from "../StatsFigure";
-import "./TrackStats.module.css";
+import "./TrackStats.css";
 
 function ItemList (){
     return (

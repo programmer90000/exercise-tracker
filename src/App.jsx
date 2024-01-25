@@ -1,14 +1,11 @@
-import { useState } from 'react'
-import NewWorkout from './components/NewWorkout/NewWorkout';
+import React from "react";
+//import { useState } from 'react'
+import './App.css'
+import PageRender from "./components/pageRender/pageRender";
+
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    <NewWorkout />
-    </>
-  )
+  return <PageRender></PageRender>
 }
 
 export default App

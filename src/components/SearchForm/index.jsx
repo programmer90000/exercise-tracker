@@ -8,6 +8,10 @@ const SearchForm = ({ onSearch }) => {
     setSearchTerm(e.target.value);
   };
 
+  const handleSearch = () => {
+    onSearch(searchTerm);
+  };
+
   return (
     <div className="search-form">
       <input
@@ -16,7 +20,7 @@ const SearchForm = ({ onSearch }) => {
         value={searchTerm}
         onChange={handleInputChange}
       />
-      <button>Search</button>
+      <button onClick={handleSearch}>Search</button>
     </div>
   );
 };

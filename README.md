@@ -1,14 +1,16 @@
 # Fitness Tracker
 
 ## Table of Contents
-* [Screenshot of page](#screenshot)
+* [Short video of the page](#GIF)
 * [Information](#information)
 * [Installation](#installation)
 * [Contributors](#contributors)
 * [License](#license)
 * [Tests](#tests)
 
-## Screenshot
+## GIF
+
+![GIF of fitness tracker website](./src/assets/fitness-tracker-video.gif)  
 
 ## Information
 This website allows the user to track exercises and workouts.
@@ -20,7 +22,7 @@ Using this JSON file, the user can also view statistics from their workouts, suc
 The website also allows the user to search for nearby gyms. The user is asked to enter their location. All of the gyms within a 5 mile radius of that location are then shown to the user. 
 
 ## Installation
-Click on this link:
+Click on this link: https://main--warm-profiterole-d7cd61.netlify.app/#home
 
 ## Contributors
 Ilie Stefan Balan

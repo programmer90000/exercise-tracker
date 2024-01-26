@@ -31,6 +31,8 @@ Sakeeb Awwal
 
 Abdul Rehman
 
+Fillipe Bueno
+
 ## License
 GNU GENERAL PUBLIC LICENSE (GPL) version 3.0
 
